@@ -19,6 +19,7 @@
     z-index: 1;
     top: 10%;
     left: 10%;
+    opacity: .45;
 }
 
 .header-image-sun {
