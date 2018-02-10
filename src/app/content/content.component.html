@@ -1,20 +1,13 @@
-<mat-card>
-    <mat-card-content>
-        <mat-form-field class="example-form-field">
-            <span matPrefix><i class="material-icons">search &nbsp;</i></span>
-            <input matInput type="text" placeholder="Lookup a place!" #search [(ngModel)]="placeName"/>
-            <button mat-button *ngIf="placeName" matSuffix mat-icon-button aria-label="Clear" (click)="placeName=''">
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-form-field>
-
-        <h2 *ngIf="currentPlace !== undefined">
-            {{ currentPlace.formatted_address }}
-            <small>({{weatherData.latitude }}, {{ weatherData.longitude }})</small>
-        </h2>
-        <div *ngIf="weatherData !== undefined">
-            <p>Current Summary: {{ weatherData.currentSummary }}</p>
-            <p>Temprature: {{ weatherData.temprature }}(F)</p>
-        </div>
-    </mat-card-content>
-</mat-card>
+<div class="container">
+    <mat-form-field class="example-form-field">
+        <span matPrefix><i class="material-icons">search &nbsp;</i></span>
+        <input matInput type="text" placeholder="Lookup a place!" class="form-control" #search [formControl]="searchControl"/>
+        <button mat-button *ngIf="placeName" matSuffix mat-icon-button aria-label="Clear" (click)="placeName=''">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+  
+    <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    </agm-map>
+</div>

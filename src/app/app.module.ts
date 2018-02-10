@@ -11,7 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MaterialModule } from './material/material.module';
 import { WeatherService } from './weather.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {AgmCoreModule} from '@agm/core';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
 @NgModule({
   declarations: [
