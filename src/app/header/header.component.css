@@ -1,3 +1,4 @@
+@import url("../../../node_modules/animate.css/animate.min.css");
 .header-image {
     position: relative;
     padding-bottom: 50%;
@@ -25,7 +26,7 @@
     top: 2%;
     right: 3%;
     z-index: 2;
-    animation: bounce 2s linear infinite;
+    animation: rubberBand 4s linear infinite;
 }
 
 .header-image-cloud {
@@ -33,64 +34,13 @@
     top: 3%;
     left: 1%;
     z-index: 2;
+    animation: rubberBand 4s linear infinite;
+}
+
+.down-nav {
+    position: absolute;
+    z-index: 6;
+    bottom: 15%;
+    left: 47%;
     animation: bounce 2s linear infinite;
-}
-
-@keyframes bounce {
-    from,
-    20%,
-    53%,
-    80%,
-    to {
-        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-    }
-    40%,
-    43% {
-        -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-        -webkit-transform: translate3d(0, -30px, 0);
-        transform: translate3d(0, -30px, 0);
-    }
-    70% {
-        -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-        -webkit-transform: translate3d(0, -15px, 0);
-        transform: translate3d(0, -15px, 0);
-    }
-    90% {
-        -webkit-transform: translate3d(0, -4px, 0);
-        transform: translate3d(0, -4px, 0);
-    }
-}
-
-@keyframes tada {
-    from {
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
-    }
-    10%,
-    20% {
-        -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
-        transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
-    }
-    30%,
-    50%,
-    70%,
-    90% {
-        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-    }
-    40%,
-    60%,
-    80% {
-        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-    }
-    to {
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
-    }
 }
