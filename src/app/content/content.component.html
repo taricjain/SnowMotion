@@ -1,5 +1,5 @@
 <mat-card class="search-module" id="search-bar">
-    <mat-form-field class="example-form-field">
+    <mat-form-field class="form-field">
         <span matPrefix><i class="material-icons">search &nbsp;</i></span>
         <input matInput type="text" placeholder="Enter a Location" class="form-control" #search [formControl]="searchControl" />
         <button mat-button *ngIf="placeName" matSuffix mat-icon-button aria-label="Clear" (click)="placeName=''">

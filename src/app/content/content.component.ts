@@ -4,6 +4,8 @@ import { FormControl, FormsModule } from '@angular/forms';
 import { MapsAPILoader, AgmCoreModule, GoogleMapsAPIWrapper, InfoWindowManager, AgmInfoWindow } from '@agm/core';
 import {} from 'googlemaps';
 
+declare var $: any;
+
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
