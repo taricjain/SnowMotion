@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MaterialModule } from './material/material.module';
 import { WeatherService } from './weather.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {AgmCoreModule} from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,16 @@ import { WeatherService } from './weather.service';
     ContentComponent
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      libraries: ["places"],
+      apiKey: 'AIzaSyCQTJWx8q9B0g2LnrI8qUw2virGuLj8P20'
+    }),
     BrowserModule,
     HttpClientModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     WeatherService
