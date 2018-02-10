@@ -7,25 +7,7 @@ import {} from 'googlemaps';
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.css'],
-  styles: [`
-  agm-map {
-     height: 600px;
-  }`],
-  template: 
-    `<div class="container">
-      <mat-form-field class="example-form-field">
-      <span matPrefix><i class="material-icons">search &nbsp;</i></span>
-      <input matInput type="text" placeholder="Lookup a place!" class="form-control" #search [formControl]="searchControl"/>
-      <button mat-button *ngIf="placeName" matSuffix mat-icon-button aria-label="Clear" (click)="placeName=''">
-          <mat-icon>close</mat-icon>
-      </button>
-      </mat-form-field>
-
-      <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-      </agm-map>
-    </div>`
+  styleUrls: ['./content.component.sass']
 })
 export class ContentComponent implements OnInit {
   
