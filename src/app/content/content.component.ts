@@ -8,11 +8,15 @@ import {} from 'googlemaps';
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
+<<<<<<< HEAD
   styleUrls: ['./content.component.css'],
   styles: [`
   agm-map {
      height: 600px;
   }`]
+=======
+  styleUrls: ['./content.component.sass']
+>>>>>>> master
 })
 export class ContentComponent implements OnInit {
   
