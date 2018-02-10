@@ -13,6 +13,7 @@ import { WeatherService } from './weather.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { WeatherComponent } from './weather/weather.component';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { WeatherComponent } from './weather/weather.component';
     MaterialModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragScrollModule
   ],
   providers: [
     WeatherService

@@ -1,7 +1,15 @@
 .address {
     padding-top: 30px;
 }
+.scroller {
+    height: 260px;
+}
+.carousel-card {
+    width: 180px;
+    height: 180px;
+}
 
-.mat-tab {
-    padding-top: 12px;
+.mat-tab-group {
+    width: 60%;
+    flex-direction: column;
 }

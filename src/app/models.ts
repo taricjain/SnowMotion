@@ -22,6 +22,8 @@ export interface WeatherData {
     uvIndex: number;
     visibility: number;
     minuteData: MinuteData;
+    hourData: HourData;
+    icon: string;
 }
 
 export interface MinuteData {
@@ -29,8 +31,13 @@ export interface MinuteData {
     minutelyData: Array<MinutelyData>;
 }
 
-interface MinutelyData {
+export interface MinutelyData {
     time: number;
     precipIntensity: number;
     precipProbability: number;
+}
+
+export interface HourData {
+    summary: string;
+    data: Array<WeatherData>;
 }

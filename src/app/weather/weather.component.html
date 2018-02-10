@@ -2,15 +2,32 @@
     <h1 class="address">
       {{ currentPlace.formatted_address }}
       <small *ngIf="weatherData !== undefined">
-          {{ weatherData.temperature }}
+          ({{ weatherData.temperature }} &deg;F)
       </small>
     </h1>
     <span *ngIf="weatherData !== undefined">
       <p>Currently {{ weatherData.currentSummary }}</p>
     </span>
-  <mat-tab-group>
+  <mat-tab-group *ngIf="weatherData !== undefined">
       <mat-tab label="Hourly">
-        Hourly
+        <p>Summary: {{ weatherData.hourData.summary }}</p>
+        <div
+        dragScroll
+        class="scroller">
+         <mat-grid-list cols="5">
+            <mat-grid-tile *ngFor="let hourData of weatherData.hourData.data">
+              <mat-card class="carousel-card">
+                <mat-card-title style="padding-top:0.5em;">{{ hourData.temperature }} &deg;F</mat-card-title>
+                <mat-card-subtitle>{{ hourData.time * 1000 | date:'EEEE h:mm a' }}</mat-card-subtitle>
+                <mat-card-content>
+                  <p>Humidity: {{ hourData.humidity * 100 }} %</p>
+                  <p>Visibility: {{ hourData.visibility }} mi</p>
+                </mat-card-content>
+              </mat-card>
+            </mat-grid-tile>
+         </mat-grid-list>
+        </div>
       </mat-tab>
   </mat-tab-group>
+  
 </mat-card>
