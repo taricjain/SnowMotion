@@ -1,4 +1,13 @@
-.mat-card{
+.mat-card {
     background: rgb(3, 33, 67);
     color: white;
+}
+
+.header-image {
+    position: relative;
+    padding-bottom: 100%;
+}
+
+.header-image-piece {
+    position: absolute;
 }
