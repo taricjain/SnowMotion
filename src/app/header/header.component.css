@@ -1,3 +1,4 @@
+@import url("../../../node_modules/animate.css/animate.min.css");
 .header-image {
     position: relative;
     padding-bottom: 50%;
@@ -42,11 +43,10 @@
     z-index: 6;
     bottom: 15%;
     left: 47%;
-    animation: bounce 2s linear infinite;
+    animation: rubberBand 2s linear infinite;
 }
 .smoothScroll {
     text-decoration: none;  
     font-family: inherit;
     margin: 24px;
-    animation: rubberBand 2s linear infinite;
 }
