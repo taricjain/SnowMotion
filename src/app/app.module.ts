@@ -9,6 +9,7 @@ import { ContentComponent } from './content/content.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MaterialModule } from './material/material.module';
+import { WeatherService } from './weather.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { MaterialModule } from './material/material.module';
     HttpClientModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    WeatherService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
