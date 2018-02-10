@@ -1,15 +1,15 @@
-<div class="container">
-      <mat-form-field class="example-form-field">
-      <span matPrefix><i class="material-icons">search &nbsp;</i></span>
-      <input matInput type="text" placeholder="Lookup a place!" class="form-control" #search [formControl]="searchControl"/>
-      <button mat-button *ngIf="placeName" matSuffix mat-icon-button aria-label="Clear" (click)="placeName=''">
-          <mat-icon>close</mat-icon>
-      </button>
-      </mat-form-field>
+<mat-card class="search-module" id="search-bar">
+    <mat-form-field class="example-form-field">
+        <span matPrefix><i class="material-icons">search &nbsp;</i></span>
+        <input matInput type="text" placeholder="Enter a Location" class="form-control" #search [formControl]="searchControl" />
+        <button mat-button *ngIf="placeName" matSuffix mat-icon-button aria-label="Clear" (click)="placeName=''">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
 
-      <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+    <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
         <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-      </agm-map>
+    </agm-map>
 
-      <app-weather *ngIf="hasCurrentPlace == true" [currentPlace]="currentPlace"></app-weather>
-</div>
+    <app-weather *ngIf="hasCurrentPlace == true" [currentPlace]="currentPlace"></app-weather>
+</mat-card>

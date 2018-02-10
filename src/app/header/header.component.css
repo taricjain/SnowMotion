@@ -1,4 +1,52 @@
-.mat-card{
-    background: rgb(3, 33, 67);
-    color: white;
+@import url("../../../node_modules/animate.css/animate.min.css");
+.header-image {
+    position: relative;
+    padding-bottom: 50%;
+    background-color: rgb(208, 237, 240);
+}
+
+.header-image-text {
+    position: absolute;
+    z-index: 5;
+    top: 25%;
+    left: 15%;
+    box-shadow: 15rem;
+    animation: tada 3s linear infinite;
+}
+
+.header-image-mount {
+    position: absolute;
+    z-index: 1;
+    top: 10%;
+    left: 10%;
+    opacity: .45;
+}
+
+.header-image-sun {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    z-index: 2;
+    animation: bounce 3s linear infinite;
+}
+
+.header-image-cloud {
+    position: absolute;
+    top: 3%;
+    left: 1%;
+    z-index: 2;
+    animation: bounce 3s linear infinite;
+}
+
+.down-nav {
+    position: absolute;
+    z-index: 6;
+    bottom: 15%;
+    left: 47%;
+    animation: rubberBand 2s linear infinite;
+}
+.smoothScroll {
+    text-decoration: none;  
+    font-family: inherit;
+    margin: 24px;
 }
