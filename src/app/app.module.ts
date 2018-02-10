@@ -11,14 +11,16 @@ import { FooterComponent } from './footer/footer.component';
 import { MaterialModule } from './material/material.module';
 import { WeatherService } from './weather.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+import {AgmCoreModule} from '@agm/core';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ContentComponent
+    ContentComponent,
+    SidebarComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
