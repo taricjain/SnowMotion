@@ -26,7 +26,7 @@
     top: 2%;
     right: 3%;
     z-index: 2;
-    animation: rubberBand 4s linear infinite;
+    animation: bounce 3s linear infinite;
 }
 
 .header-image-cloud {
@@ -34,7 +34,7 @@
     top: 3%;
     left: 1%;
     z-index: 2;
-    animation: rubberBand 4s linear infinite;
+    animation: bounce 3s linear infinite;
 }
 
 .down-nav {
@@ -42,5 +42,5 @@
     z-index: 6;
     bottom: 15%;
     left: 47%;
-    animation: bounce 2s linear infinite;
+    animation: rubberBand 2s linear infinite;
 }
