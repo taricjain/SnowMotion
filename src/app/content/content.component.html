@@ -7,5 +7,14 @@
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
+
+        <h2 *ngIf="currentPlace !== undefined">
+            {{ currentPlace.formatted_address }}
+            <small>({{weatherData.latitude }}, {{ weatherData.longitude }})</small>
+        </h2>
+        <div *ngIf="weatherData !== undefined">
+            <p>Current Summary: {{ weatherData.currentSummary }}</p>
+            <p>Temprature: {{ weatherData.temprature }}(F)</p>
+        </div>
     </mat-card-content>
 </mat-card>

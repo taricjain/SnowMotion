@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef, NgZone } from '@angula
 import { WeatherService } from '../weather.service';
 import { FormControl, FormsModule } from '@angular/forms';
 import { MapsAPILoader, AgmCoreModule } from '@agm/core';
+import { Coordinate, WeatherData } from '../models';
 import {} from 'googlemaps';
 
 @Component({
@@ -21,7 +22,11 @@ export class ContentComponent implements OnInit {
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone ) {}
+  private weatherData: WeatherData;
+  private currentPlace: google.maps.places.PlaceResult;
+
+  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, 
+  private weatherService: WeatherService) {}
 
 
   ngOnInit() {
@@ -41,7 +46,7 @@ export class ContentComponent implements OnInit {
         this.ngZone.run(() => {
           //get the place result
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-  
+
           //verify result
           if (place.geometry === undefined || place.geometry === null) {
             return;
@@ -51,6 +56,14 @@ export class ContentComponent implements OnInit {
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
           this.zoom = 12;
+
+          // Building coordinate
+          var selectedCoordinates: Coordinate = { latitude: this.latitude, longitude: this.longitude};
+          // Send request to weather api
+          this.weatherService.getDataWithCoordinates(selectedCoordinates, (error, response) => {
+              this.updateViewWithWeatherData(place, response);
+          });
+
         });
       });
     });
@@ -65,4 +78,9 @@ export class ContentComponent implements OnInit {
     }
   }
 
+  updateViewWithWeatherData(place: google.maps.places.PlaceResult, weatherData: any) {
+    this.weatherData = weatherData as WeatherData;
+    this.currentPlace = place;
+    console.log(this.weatherData);
+  }
 }
