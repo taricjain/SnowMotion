@@ -3,7 +3,24 @@
     color: white;
 }
 
-#yeet {
+.container {
+    background: rgba(3, 36, 77);
     float: right;
 }
-
+  
+.button {
+    background: rgba(3, 36, 77);
+}
+.sidenav-content {
+    display: flex;
+    height: 100%;
+    text-align: center;
+}
+  
+.sidenav {
+    padding: 100px;
+    height: 100%;
+    width: 45%;
+    text-align: center;
+}
+  

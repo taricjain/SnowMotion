@@ -1,6 +1,19 @@
-<mat-card>
-    {{ title }} <span id="yeet">
-        <button type="button" mat-button (click)="drawer.toggle()">sidenav</button>
-    </span>   
+<mat-card >
+    {{ title }} 
+        <mat-drawer-container class="container" autosize>
+            
+                  
+            <div class="sidenav-content">
+                <button id="button" type="button" mat-button (click)="drawer.toggle()">
+                    Open me bitch
+                </button>
+            </div>
+            
+        </mat-drawer-container>  
+
+        
 </mat-card>
 
+<mat-drawer #drawer class="sidenav" mode="side">
+        <p>Auto-resizing sidenav</p>
+    </mat-drawer>
