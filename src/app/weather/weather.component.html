@@ -1,0 +1,16 @@
+<mat-card>
+    <h1 class="address">
+      {{ currentPlace.formatted_address }}
+      <small *ngIf="weatherData !== undefined">
+          {{ weatherData.temperature }}
+      </small>
+    </h1>
+    <span *ngIf="weatherData !== undefined">
+      <p>Currently {{ weatherData.currentSummary }}</p>
+    </span>
+  <mat-tab-group>
+      <mat-tab label="Hourly">
+        Hourly
+      </mat-tab>
+  </mat-tab-group>
+</mat-card>

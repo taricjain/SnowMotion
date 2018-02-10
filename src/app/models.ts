@@ -16,7 +16,7 @@ export interface WeatherData {
     longitude: number;
     time: number;
     currentSummary: string;
-    temprature: number;
+    temperature: number;
     humidity: number;
     pressure: number;
     uvIndex: number;

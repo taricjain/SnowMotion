@@ -28,7 +28,7 @@ export class WeatherService {
       weatherData.longitude = data["longitude"];
       weatherData.time = data["currently"]["time"];
       weatherData.currentSummary = data["currently"]["summary"];
-      weatherData.temprature = data["currently"]["temperature"];
+      weatherData.temperature = data["currently"]["temperature"];
       weatherData.humidity = data["currently"]["pressure"];
       weatherData.visibility = data["currently"]["visibility"];
       callback(null, weatherData);

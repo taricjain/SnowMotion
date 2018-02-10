@@ -24,8 +24,8 @@ export class ContentComponent implements OnInit {
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
-  private weatherData: WeatherData;
-  private currentPlace: google.maps.places.PlaceResult;
+  public currentPlace: google.maps.places.PlaceResult;
+  private hasCurrentPlace: boolean = false;
 
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, 
   private weatherService: WeatherService) {}
@@ -58,13 +58,7 @@ export class ContentComponent implements OnInit {
           this.longitude = place.geometry.location.lng();
           this.zoom = 12;
 
-          // Building coordinate
-          var selectedCoordinates: Coordinate = { latitude: this.latitude, longitude: this.longitude};
-          // Send request to weather api
-          this.weatherService.getDataWithCoordinates(selectedCoordinates, (error, response) => {
-              this.updateViewWithWeatherData(place, response);
-          });
-
+          this.updateViewWithWeatherData(place);
         });
       });
     });
@@ -79,9 +73,8 @@ export class ContentComponent implements OnInit {
     }
   }
 
-  updateViewWithWeatherData(place: google.maps.places.PlaceResult, weatherData: any) {
-    this.weatherData = weatherData as WeatherData;
+  updateViewWithWeatherData(place: google.maps.places.PlaceResult) {
+    this.hasCurrentPlace = true;
     this.currentPlace = place;
-    console.log(this.weatherData);
   }
 }
