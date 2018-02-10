@@ -18,6 +18,7 @@
     z-index: 1;
     top: 10%;
     left: 10%;
+    opacity: .45;
 }
 
 .header-image-sun {
@@ -25,7 +26,7 @@
     top: 2%;
     right: 3%;
     z-index: 2;
-    animation: rubberBand 4s linear infinite;
+    animation: bounce 3s linear infinite;
 }
 
 .header-image-cloud {
@@ -33,7 +34,7 @@
     top: 3%;
     left: 1%;
     z-index: 2;
-    animation: rubberBand 4s linear infinite;
+    animation: bounce 3s linear infinite;
 }
 
 .down-nav {
@@ -47,4 +48,5 @@
     text-decoration: none;  
     font-family: inherit;
     margin: 24px;
+    animation: rubberBand 2s linear infinite;
 }
