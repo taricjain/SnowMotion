@@ -11,7 +11,7 @@ declare var $: any;
 export class HeaderComponent implements OnInit {
   @Input()
   title: string;
-  
+
   constructor() { }
 
   ngOnInit() {
