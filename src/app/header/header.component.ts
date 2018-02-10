@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from '../material/material.module';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +12,6 @@ export class HeaderComponent implements OnInit {
   @Input()
   title: string;
   
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  constructor() {}
+  ngOnInit() {}
 }

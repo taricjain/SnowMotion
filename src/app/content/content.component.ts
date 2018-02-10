@@ -4,6 +4,8 @@ import { FormControl, FormsModule } from '@angular/forms';
 import { MapsAPILoader, AgmCoreModule, GoogleMapsAPIWrapper, InfoWindowManager, AgmInfoWindow } from '@agm/core';
 import {} from 'googlemaps';
 
+declare var $: any;
+
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -65,4 +67,19 @@ export class ContentComponent implements OnInit {
       });
     }
   }
+
+  public smoothness() {
+    $('.smoothScroll').click(function() {
+      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 800);
+          return false;
+        }
+      }
+    });
+  } 
 }

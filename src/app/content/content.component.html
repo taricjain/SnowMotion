@@ -1,5 +1,5 @@
-<div class="container">
-    <mat-form-field class="example-form-field">
+<mat-card class="container">
+    <mat-form-field class="search-field">
         <span matPrefix><i class="material-icons">search &nbsp;</i></span>
         <input matInput type="text" placeholder="Lookup a place!" class="form-control" #search [formControl]="searchControl"/>
         <button mat-button *ngIf="placeName" matSuffix mat-icon-button aria-label="Clear" (click)="placeName=''">
@@ -10,4 +10,10 @@
     <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
         <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
     </agm-map>
-</div>
+</mat-card>
+
+<h1 class="title" id="top">Imagine your things at the top</h1>
+<a class="smoothScroll" href="#bottom" (click)="smoothness()" >Click here to smooth scroll to the bottom of the page</a>
+<div class="content"></div>
+<h1 class="title">And here the content that the user will reach through the link<small>sorry for the bad english</small></h1>
+<a class="smoothScroll" href="#top" id="bottom" (click)="smoothness()" >Click here to smooth scroll to the top of the page</a>
