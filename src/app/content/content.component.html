@@ -8,6 +8,20 @@
     </mat-form-field>
   
     <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+        <div>
+            <button>
+                test
+            </button>
+        </div>
         <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+        
+        <agm-circle [latitude]="latitude" [longitude]="longitude" 
+            [radius]="6000"
+            [fillColor]="'gray'"
+            [circleDraggable]="false"
+            [editable]="false">
+        </agm-circle>
     </agm-map>
+    
+    
 </div>

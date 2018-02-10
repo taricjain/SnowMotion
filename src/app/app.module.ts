@@ -13,6 +13,7 @@ import { WeatherService } from './weather.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AgmCoreModule} from '@agm/core';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { TabsComponent } from './tabs/tabs.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HeaderComponent,
     FooterComponent,
     ContentComponent,
-    SidebarComponent
+    SidebarComponent,
+    TabsComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
