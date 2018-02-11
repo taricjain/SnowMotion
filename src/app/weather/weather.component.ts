@@ -30,13 +30,15 @@ export class WeatherComponent implements OnInit, OnChanges {
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
-    this.updateWeather();
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (!this.isFirstTime) {
       const newCurrentPlace: SimpleChange = changes.currentPlace;
       this.currentPlace = newCurrentPlace.currentValue;
+      this.updateWeather();
+    }
+    else {
       this.updateWeather();
     }
   }
