@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { WeatherData, Coordinate } from '../models';
 import { WeatherService } from '../weather.service';
 import { FormControl, FormsModule } from '@angular/forms';
 import { MapsAPILoader, AgmCoreModule, GoogleMapsAPIWrapper, InfoWindowManager, AgmInfoWindow } from '@agm/core';
@@ -45,12 +46,14 @@ export class ContentComponent implements OnInit {
   // line, area
   autoScale = true;
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone ) {
+  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private weatherService: WeatherService) {
     Object.assign(this, {single, multi})
   }
   onSelect(event) {
     console.log(event);
   }
+  private weatherData: WeatherData;
+  private currentPlace: google.maps.places.PlaceResult;
 
   ngOnInit() {
     //default overlook on America
@@ -79,6 +82,14 @@ export class ContentComponent implements OnInit {
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
           this.zoom = 12;
+
+          // Building coordinate
+          var selectedCoordinates: Coordinate = { latitude: this.latitude, longitude: this.longitude};
+          // Send request to weather api
+          this.weatherService.getDataWithCoordinates(selectedCoordinates, (error, response) => {
+              this.updateViewWithWeatherData(place, response);
+          });
+
         });
       });
     });
@@ -92,5 +103,11 @@ export class ContentComponent implements OnInit {
         this.zoom = 12;
       });
     }
+  }
+
+  updateViewWithWeatherData(place: google.maps.places.PlaceResult, weatherData: any) {
+    this.weatherData = weatherData as WeatherData;
+    this.currentPlace = place;
+    console.log(this.weatherData);
   }
 }
