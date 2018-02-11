@@ -1,11 +1,10 @@
-<mat-card>
-    <mat-card class="address">
-      <h1>
-      {{ currentPlace.formatted_address }}
-      <small *ngIf="weatherData !== undefined">
-          ({{ weatherData.temperature }} &deg;F)
-      </small>
-    </h1>
+<mat-card class="address">
+  <h1>
+  {{ currentPlace.formatted_address }}
+  <small *ngIf="weatherData !== undefined">
+      ({{ weatherData.temperature }} &deg;F)
+  </small>
+  </h1>
     <mat-card-subtitle *ngIf="weatherData !== undefined">
       <p>Currently {{ weatherData.currentSummary }}</p>
     </mat-card-subtitle>
@@ -24,16 +23,13 @@
                   <p>Humidity: {{ hourData.humidity * 100 }} %</p>
                   <p>Visibility: {{ hourData.visibility }} mi</p>
                 </mat-card-content>
-                <mat-card-actions>
-                  <button mat-raised-button type="button">Details</button>
-                </mat-card-actions>
               </mat-card>
             </mat-grid-tile>
          </mat-grid-list>
         </div>
       </mat-tab>
 
-      <mat-tab label="Minutely">
+      <!-- <mat-tab label="Minutely">
         <p>Summary: {{ weatherData.minuteData.summary }}</p>
         <div dragScroll class="scroller">
           <mat-grid-list cols="5">
@@ -50,6 +46,21 @@
           </mat-grid-list>
         </div>
       </mat-tab>
+
+      <mat-tab label="On This Day">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Last Week
+              </mat-panel-title>
+              <mat-panel-description>
+                This day last week
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>This is the primary content of the panel.</p>
+          </mat-expansion-panel>
+      </mat-tab> -->
+
 
   </mat-tab-group>
   
