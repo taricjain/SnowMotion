@@ -2,9 +2,6 @@
     <mat-form-field class="example-form-field">
         <span matPrefix><i class="material-icons">search &nbsp;</i></span>
         <input matInput type="text" placeholder="Enter a Location" class="form-control" #search [formControl]="searchControl" />
-        <button mat-button *ngIf="placeName" matSuffix mat-icon-button aria-label="Clear" (click)="placeName=''">
-            <mat-icon>close</mat-icon>
-        </button>
     </mat-form-field>
 
     <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">

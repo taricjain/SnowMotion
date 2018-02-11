@@ -3,6 +3,9 @@ import {} from 'googlemaps';
 import { WeatherService } from '../weather.service';
 import { WeatherData, Coordinate, TimeMachine } from '../models';
 import { DragScrollDirective } from 'ngx-drag-scroll';
+import { MatDialog } from '@angular/material';
+
+import { DetailsComponent } from '../details/details.component';
 
 @Component({
   selector: 'app-weather',
@@ -29,7 +32,7 @@ export class WeatherComponent implements OnInit, OnChanges {
 
   @ViewChild('nav', {read: DragScrollDirective}) ds: DragScrollDirective;
 
-  constructor(private weatherService: WeatherService) { }
+  constructor(private weatherService: WeatherService, public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -100,6 +103,11 @@ export class WeatherComponent implements OnInit, OnChanges {
   });
 }
 
-  
+  openDialog() {
+    let dialogRef = this.dialog.open(DetailsComponent, {
+      height: '200px',
+      width: '800px',
+    });
+  }
 
 }
