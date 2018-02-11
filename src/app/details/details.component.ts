@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { single, multi } from './data';
+import { single } from './data';
 
 @Component({
   selector: 'app-details',
@@ -9,13 +9,12 @@ import { single, multi } from './data';
 export class DetailsComponent implements OnInit {
 
   constructor() {
-    Object.assign(this, {single, multi})
+    this.data = single;
   }
 
-  ngOnInit() {
-  }
-
-  view: any[] = [700, 400];
+  ngOnInit() { }
+  view: any[] = [200, 100];
+  data: any[];
   // options
   showXAxis = true;
   showYAxis = true;

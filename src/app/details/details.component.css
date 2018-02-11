@@ -13,3 +13,8 @@ body{
     text-rendering: optimizeLegibility;
     margin:20px
   }
+
+  .mat-grid-tile {
+    padding-top: 5px;
+  }
+  

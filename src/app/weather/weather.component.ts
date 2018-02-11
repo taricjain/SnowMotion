@@ -58,8 +58,8 @@ export class WeatherComponent implements OnInit, OnChanges {
 
   openDialog() {
     let dialogRef = this.dialog.open(DetailsComponent, {
-      height: '400px',
-      width: '600px',
+      height: '200px',
+      width: '800px',
     });
   }
 
