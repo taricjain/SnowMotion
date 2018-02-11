@@ -17,11 +17,12 @@
             <mat-grid-tile *ngFor="let hourData of weatherData.hourData.data">
               <mat-card class="carousel-card">
                 <img mat-card-avatar src="../assets/images/{{ hourData.icon }}.png" width="32" height="32" />
-                <mat-card-title style="padding-top:0.5em;">{{ hourData.temperature }} &deg;F</mat-card-title>
+                <mat-card-title>{{ hourData.temperature }} &deg;F</mat-card-title>
                 <mat-card-subtitle>{{ hourData.time * 1000 | date:'EEEE h:mm a' }}</mat-card-subtitle>
                 <mat-card-content>
-                  <p>Humidity: {{ hourData.humidity * 100 }} %</p>
-                  <p>Visibility: {{ hourData.visibility }} mi</p>
+                  Humidity: {{ hourData.humidity * 100 }} %
+                  <br>Visibility: {{ hourData.visibility }} mi
+                  <br><br><br><button mat-raised-button id="dialog" (click)="openDialog()">Details</button>
                 </mat-card-content>
               </mat-card>
             </mat-grid-tile>

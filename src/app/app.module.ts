@@ -16,6 +16,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxD3LiquidFillGaugeModule } from 'ngx-d3-liquid-fill-gauge';
 import { WeatherComponent } from './weather/weather.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DragScrollModule } from 'ngx-drag-scroll';
     HeaderComponent,
     FooterComponent,
     ContentComponent,
-    WeatherComponent
+    WeatherComponent,
+    DetailsComponent
   ],
   imports: [
     AgmCoreModule.forRoot({

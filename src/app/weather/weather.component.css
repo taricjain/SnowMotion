@@ -5,6 +5,10 @@
     height: 600px;
 }
 .carousel-card {
-    width: 200px;
-    height: 200px;
+    width: 130px;
+    height: 210px;
+}
+.mat-dialog-container {
+    display: inline-block;
+    position: fixed;
 }

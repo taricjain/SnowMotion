@@ -21,7 +21,7 @@ export class WeatherService {
     };
     this.httpService.post(environment.SERVER_API_URL, serverPayload)
     .subscribe((data) => {
-
+      
       // parse JSON into correct models
       var weatherData: WeatherData = {} as WeatherData;
       weatherData.latitude = data["latitude"];
