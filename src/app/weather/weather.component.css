@@ -16,3 +16,8 @@
 .address {
     margin-top: -35px;
 }
+
+.history-card {
+    width: 200px;
+    height: 200px;
+}
