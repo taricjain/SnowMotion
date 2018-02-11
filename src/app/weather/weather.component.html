@@ -5,10 +5,12 @@
       ({{ weatherData.temperature }} &deg;F)
   </small>
   </h1>
-    <mat-card-subtitle *ngIf="weatherData !== undefined">
+    <mat-card-subtitle *ngIf="weatherData !== undefined" style="color: white;">
       <p>Currently {{ weatherData.currentSummary }}</p>
     </mat-card-subtitle>
-    
+</mat-card>
+
+<mat-card>
   <mat-tab-group *ngIf="weatherData !== undefined">
       <mat-tab label="Hourly">
         <p>Summary: {{ weatherData.hourData.summary }}</p>

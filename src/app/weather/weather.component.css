@@ -1,5 +1,7 @@
 .address {
     padding-top: 30px;
+    background: rgb(35,87,127);
+    color: white;
 }
 .scroller {
     height: 600px;
@@ -11,10 +13,6 @@
 .mat-dialog-container {
     display: inline-block;
     position: fixed;
-}
-
-.address {
-    margin-top: -35px;
 }
 
 .history-card {
