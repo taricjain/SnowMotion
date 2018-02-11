@@ -1,0 +1,18 @@
+.address {
+    padding-top: 30px;
+}
+.scroller {
+    height: 600px;
+}
+.carousel-card {
+    width: 200px;
+    height: 200px;
+}
+.mat-dialog-container {
+    display: inline-block;
+    position: fixed;
+}
+
+.address {
+    margin-top: -20px;
+}

@@ -1,0 +1,77 @@
+<mat-card class="address">
+  <h1>
+  {{ currentPlace.formatted_address }}
+  <small *ngIf="weatherData !== undefined">
+      ({{ weatherData.temperature }} &deg;F)
+  </small>
+  </h1>
+    <mat-card-subtitle *ngIf="weatherData !== undefined">
+      <p>Currently {{ weatherData.currentSummary }}</p>
+    </mat-card-subtitle>
+    
+  <mat-tab-group *ngIf="weatherData !== undefined">
+      <mat-tab label="Hourly">
+        <p>Summary: {{ weatherData.hourData.summary }}</p>
+        <div dragScroll class="scroller">
+         <mat-grid-list cols="5">
+            <mat-grid-tile *ngFor="let hourData of weatherData.hourData.data">
+              <mat-card class="carousel-card">
+                <img mat-card-avatar src="../assets/images/{{ hourData.icon }}.png" width="32" height="32" />
+                <mat-card-title>{{ hourData.temperature }} &deg;F</mat-card-title>
+                <mat-card-subtitle>{{ hourData.time * 1000 | date:'EEEE h:mm a' }}</mat-card-subtitle>
+                <mat-card-content>
+                  Humidity: {{ hourData.humidity * 100 }} %
+                  <br>Visibility: {{ hourData.visibility }} mi
+                  <br><br><br><button mat-raised-button id="dialog" (click)="openDialog(hourData.temperature, hourData.humidity)">Details</button>
+                </mat-card-content>
+              </mat-card>
+            </mat-grid-tile>
+         </mat-grid-list>
+        </div>
+      </mat-tab>
+
+      <mat-tab *ngIf="weatherData.minuteData !== undefined" label="Minutely">
+        <p>Summary: {{ weatherData.minuteData.summary }}</p>
+        <div dragScroll class="scroller">
+          <mat-grid-list cols="5">
+            <mat-grid-tile *ngFor="let minuteData of weatherData.minuteData.minutelyData">
+              <mat-card class="carousel-card">
+                <img *ngIf="minuteData.precipType !== undefined" mat-card-avatar src="../assets/images/{{ minuteData.precipType }}.png" width="32" height="32" />
+                <mat-card-title> {{ minuteData.time * 1000 | date:'EEEE h:mm a' }}</mat-card-title>
+                <mat-card-content>
+                  <p>Precepitation Intensity: {{ minuteData.precipIntensity }}</p>
+                  <p>Precepitation Probability: {{ minuteData.precipProbability * 100 }} %</p>
+                </mat-card-content>
+              </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="On this day">
+        <mat-expansion-panel [expanded]="false" *ngFor="let hData of historicData">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ hData.time * 1000 | date:'MMM d, y' }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            <mat-card>
+              <img mat-card-avatar src="../assets/images/{{ hData.icon }}.png" width="40" height="40" />              
+              <mat-card-title>
+                {{ hData.temperature }} &deg;F
+              </mat-card-title>
+              <mat-card-content>
+                <p>Summary: {{ hData.currentSummary }}</p>
+                <p>
+                  Humidity: {{ hData.humidity * 100}}% <br />
+                  Visibility: {{ hData.visibility }} mi
+                </p>
+              </mat-card-content>
+            </mat-card>
+          </mat-panel-description>
+        </mat-expansion-panel>
+      </mat-tab>
+  </mat-tab-group>
+
+</mat-card>
