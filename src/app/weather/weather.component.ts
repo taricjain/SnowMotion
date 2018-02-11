@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange, ViewChild, ElementRef } from '@angular/core';
 import {} from 'googlemaps';
 import { WeatherService } from '../weather.service';
-import { WeatherData, Coordinate } from '../models';
+import { WeatherData, Coordinate, TimeMachine } from '../models';
 import { DragScrollDirective } from 'ngx-drag-scroll';
 
 @Component({
@@ -17,6 +17,8 @@ export class WeatherComponent implements OnInit, OnChanges {
   private isFirstTime: boolean = true;
 
   private weatherData: WeatherData;
+
+  private historicData: Array<WeatherData> = new Array<WeatherData>();
 
   disabled;
   xDisabled;
@@ -48,10 +50,55 @@ export class WeatherComponent implements OnInit, OnChanges {
    var coordinate: Coordinate = { latitude: this.currentPlace.geometry.location.lat(), longitude: this.currentPlace.geometry.location.lng()};
    this.weatherService.getDataWithCoordinates(coordinate, (error, response) => {
      this.weatherData = response as WeatherData;
-     console.log(this.weatherData);
      this.isFirstTime = false;
    });
-  }
+
+  this.weatherService.getTimeMachineData(coordinate, TimeMachine.oneWeekAgo(), (err, response) => {
+    // Getting one week's ago data
+    console.log(response);
+    this.historicData.push(response as WeatherData);
+  });
+  this.weatherService.getTimeMachineData(coordinate, TimeMachine.oneMonthAgo(), (err, response) => {
+    // Getting one week's ago data
+    console.log(response);
+    this.historicData.push(response as WeatherData);
+  });
+  this.weatherService.getTimeMachineData(coordinate, TimeMachine.getYearAgo(), (err, response) => {
+    // Getting one week's ago data
+    console.log(response);
+    if ((response as WeatherData).latitude !== undefined) {
+      this.historicData.push(response as WeatherData);
+    }
+  });
+  this.weatherService.getTimeMachineData(coordinate, TimeMachine.getYearAgo(2), (err, response) => {
+    // Getting one week's ago data
+    console.log(response);
+    if ((response as WeatherData).latitude !== undefined) {
+      this.historicData.push(response as WeatherData);
+    }
+  });
+  this.weatherService.getTimeMachineData(coordinate, TimeMachine.getYearAgo(3), (err, response) => {
+    // Getting one week's ago data
+    console.log(response);
+    if ((response as WeatherData).latitude !== undefined) {
+      this.historicData.push(response as WeatherData);
+    }
+  });
+  this.weatherService.getTimeMachineData(coordinate, TimeMachine.getYearAgo(4), (err, response) => {
+    // Getting one week's ago data
+    console.log(response);
+    if ((response as WeatherData).latitude !== undefined) {
+      this.historicData.push(response as WeatherData);
+    }
+  });
+  this.weatherService.getTimeMachineData(coordinate, TimeMachine.getYearAgo(5), (err, response) => {
+    // Getting one week's ago data
+    console.log(response);
+    if ((response as WeatherData).latitude !== undefined) {
+      this.historicData.push(response as WeatherData);
+    }
+  });
+}
 
   
 
