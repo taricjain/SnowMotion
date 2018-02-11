@@ -1,33 +1,56 @@
 <mat-card>
-    <h1 class="address">
+    <mat-card class="address">
+      <h1>
       {{ currentPlace.formatted_address }}
       <small *ngIf="weatherData !== undefined">
           ({{ weatherData.temperature }} &deg;F)
       </small>
     </h1>
-    <span *ngIf="weatherData !== undefined">
+    <mat-card-subtitle *ngIf="weatherData !== undefined">
       <p>Currently {{ weatherData.currentSummary }}</p>
-    </span>
+    </mat-card-subtitle>
+    
   <mat-tab-group *ngIf="weatherData !== undefined">
       <mat-tab label="Hourly">
         <p>Summary: {{ weatherData.hourData.summary }}</p>
-        <div
-        dragScroll
-        class="scroller">
+        <div dragScroll class="scroller">
          <mat-grid-list cols="5">
             <mat-grid-tile *ngFor="let hourData of weatherData.hourData.data">
               <mat-card class="carousel-card">
+                <img mat-card-avatar src="../assets/images/{{ hourData.icon }}.png" width="32" height="32" />
                 <mat-card-title style="padding-top:0.5em;">{{ hourData.temperature }} &deg;F</mat-card-title>
                 <mat-card-subtitle>{{ hourData.time * 1000 | date:'EEEE h:mm a' }}</mat-card-subtitle>
                 <mat-card-content>
                   <p>Humidity: {{ hourData.humidity * 100 }} %</p>
                   <p>Visibility: {{ hourData.visibility }} mi</p>
                 </mat-card-content>
+                <mat-card-actions>
+                  <button mat-raised-button type="button">Details</button>
+                </mat-card-actions>
               </mat-card>
             </mat-grid-tile>
          </mat-grid-list>
         </div>
       </mat-tab>
+
+      <mat-tab label="Minutely">
+        <p>Summary: {{ weatherData.minuteData.summary }}</p>
+        <div dragScroll class="scroller">
+          <mat-grid-list cols="5">
+            <mat-grid-tile *ngFor="let minuteData of weatherData.minuteData.minutelyData">
+              <mat-card class="carousel-card">
+                <img *ngIf="minuteData.precipType !== undefined" mat-card-avatar src="../assets/images/{{ minuteData.precipType }}.png" width="32" height="32" />
+                <mat-card-title> {{ minuteData.time * 1000 | date:'EEEE h:mm a' }}</mat-card-title>
+                <mat-card-content>
+                  <p>Precepitation Intensity: {{ minuteData.precipIntensity }}</p>
+                  <p>Precepitation Probability: {{ minuteData.precipProbability * 100 }} %</p>
+                </mat-card-content>
+              </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+      </mat-tab>
+
   </mat-tab-group>
   
 </mat-card>

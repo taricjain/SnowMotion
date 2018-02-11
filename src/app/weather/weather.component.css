@@ -2,14 +2,14 @@
     padding-top: 30px;
 }
 .scroller {
-    height: 260px;
+    height: 600px;
 }
 .carousel-card {
-    width: 180px;
-    height: 180px;
+    width: 230px;
+    height: 230px;
 }
 
 .mat-tab-group {
-    width: 60%;
+    width: 100%;
     flex-direction: column;
 }

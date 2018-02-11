@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
-import { CallbackInterface, Coordinate, ServerPayload, WeatherData, HourData } from './models';
+import { CallbackInterface, Coordinate, ServerPayload, WeatherData, HourData, MinuteData, MinutelyData } from './models';
 
 @Injectable()
 export class WeatherService {
@@ -45,6 +45,19 @@ export class WeatherService {
         hourWeatherData.visibility = element["visibility"];
         hourWeatherData.icon = element["icon"];
         weatherData.hourData.data.push(hourWeatherData);
+      });
+
+      //Getting minutely data
+      weatherData.minuteData = {} as MinuteData;
+      weatherData.minuteData.summary = data["minutely"]["summary"];
+      weatherData.minuteData.minutelyData = new Array<MinutelyData>();
+      data["minutely"]["data"].forEach(element => {
+        var minutelyData: MinutelyData = {} as MinutelyData;
+        minutelyData.time = element["time"];
+        minutelyData.precipIntensity = element["precipIntensity"];
+        minutelyData.precipProbability = element["precipProbability"];
+        minutelyData.precipType = element["precipType"];
+        weatherData.minuteData.minutelyData.push(minutelyData);
       });
       callback(null, weatherData);
     });
