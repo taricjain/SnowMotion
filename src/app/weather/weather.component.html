@@ -22,7 +22,7 @@
                 <mat-card-content>
                   Humidity: {{ hourData.humidity * 100 }} %
                   <br>Visibility: {{ hourData.visibility }} mi
-                  <br><br><br><button mat-raised-button id="dialog" (click)="openDialog()">Details</button>
+                  <br><br><br><button mat-raised-button id="dialog" (click)="openDialog(hourData.temperature, hourData.humidity)">Details</button>
                 </mat-card-content>
               </mat-card>
             </mat-grid-tile>
@@ -73,5 +73,5 @@
         </mat-expansion-panel>
       </mat-tab>
   </mat-tab-group>
-  
+
 </mat-card>

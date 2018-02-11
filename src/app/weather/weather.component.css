@@ -5,10 +5,14 @@
     height: 600px;
 }
 .carousel-card {
-    width: 130px;
-    height: 210px;
+    width: 200px;
+    height: 200px;
 }
 .mat-dialog-container {
     display: inline-block;
     position: fixed;
+}
+
+.address {
+    margin-top: -20px;
 }

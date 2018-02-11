@@ -46,6 +46,7 @@ export class WeatherComponent implements OnInit, OnChanges {
     else {
       this.updateWeather();
     }
+    this.historicData = new Array<WeatherData>();
   }
 
   updateWeather() {
@@ -103,10 +104,14 @@ export class WeatherComponent implements OnInit, OnChanges {
   });
 }
 
-  openDialog() {
+  openDialog(tempValue: number, humidityValue: number) {
     let dialogRef = this.dialog.open(DetailsComponent, {
       height: '200px',
       width: '800px',
+      data: {
+        tempValue: tempValue,
+        humidityValue: humidityValue
+      }
     });
   }
 

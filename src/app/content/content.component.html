@@ -4,9 +4,26 @@
         <input matInput type="text" placeholder="Enter a Location" class="form-control" #search [formControl]="searchControl" />
     </mat-form-field>
 
-    <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-    </agm-map>
+    <div style="overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+    z-index: 99;
+    height: 600px;
+    width: 600px;
+    border: 2px solid #000;
+    margin: auto;
+    ">
+        <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+            <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="false">
+                <agm-circle [latitude]="latitude" [longitude]="longitude" 
+                    [radius]="5500"
+                    [fillColor]="'gray'"
+                    [circleDraggable]="false"
+                    [editable]="false">
+                </agm-circle>
+            </agm-marker>
+        </agm-map>
+    </div>
 
     <app-weather *ngIf="hasCurrentPlace == true" [currentPlace]="currentPlace"></app-weather>
 </mat-card>

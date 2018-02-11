@@ -1,19 +1,14 @@
-<mat-grid-list cols="3" rowHeight="100%">
+<mat-grid-list cols="2" rowHeight="100%">
     <mat-grid-tile>
-        <app-ngx-d3-liquid-fill-gauge id="humid-gauge" [value]="37" [minValue]="0" [maxValue]="100" [circleThickness]="0.05" [circleFillGap]="0.05" [circleColor]="'#178BCA'" [waveHeight]="0.05" [waveCount]="4" [waveRiseTime]="1000" [waveAnimateTime]="18000" [waveRise]="true"
+        <app-ngx-d3-liquid-fill-gauge id="humid-gauge" [value]="humidityValue" [minValue]="0" [maxValue]="100" [circleThickness]="0.05" [circleFillGap]="0.05" [circleColor]="'#178BCA'" [waveHeight]="0.05" [waveCount]="4" [waveRiseTime]="1000" [waveAnimateTime]="18000" [waveRise]="true"
             [waveHeightScaling]="true" [waveAnimate]="true" [waveColor]="'#178BCA'" [waveOffset]="0" [textVertPosition]=".5" [textSize]="1" [valueCountUp]="true" [displayPercent]="true" [textColor]="'#045681'" [waveTextColor]="'#A4DBf8'">
-        </app-ngx-d3-liquid-fill-gauge>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-ngx-d3-liquid-fill-gauge id="precip-gauge" [value]="77" [minValue]="0" [maxValue]="100" [circleThickness]="0.05" [circleFillGap]="0.05" [circleColor]="'#178BCA'" [waveHeight]="0.05" [waveCount]="5" [waveRiseTime]="1000" [waveAnimateTime]="18000"
-            [waveRise]="true" [waveHeightScaling]="true" [waveAnimate]="true" [waveColor]="'#178BCA'" [waveOffset]="0" [textVertPosition]=".5" [textSize]="1" [valueCountUp]="true" [displayPercent]="true" [textColor]="'#045681'" [waveTextColor]="'#A4DBf8'">
         </app-ngx-d3-liquid-fill-gauge>
     </mat-grid-tile>
     <mat-grid-tile>
         <ngx-charts-linear-gauge
         [view]="view"
         [scheme]="colorScheme"
-        [value]="80"
+        [value]="tempValue"
         [min]="-40"
         [max]="150"
         [units]="'Temperature'"

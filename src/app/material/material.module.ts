@@ -27,7 +27,7 @@ import { DetailsComponent } from '../details/details.component';
     MatTabsModule,
     MatGridListModule,
     MatExpansionModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   exports: [
     MatCardModule, 
