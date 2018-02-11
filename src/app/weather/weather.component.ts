@@ -19,9 +19,9 @@ export class WeatherComponent implements OnInit, OnChanges {
 
   private isFirstTime: boolean = true;
 
-  private weatherData: WeatherData;
+  public weatherData: WeatherData;
 
-  private historicData: Array<WeatherData> = new Array<WeatherData>();
+  public historicData: Array<WeatherData> = new Array<WeatherData>();
 
   disabled;
   xDisabled;

@@ -21,7 +21,7 @@ export class ContentComponent implements OnInit {
   public longitude: number;
   public zoom: number;
   public searchControl: FormControl;
-  private hasCurrentPlace: boolean = false;
+  public hasCurrentPlace: boolean = false;
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
