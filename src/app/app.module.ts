@@ -13,6 +13,8 @@ import { WeatherService } from './weather.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
+import { NgxD3LiquidFillGaugeModule } from 'ngx-d3-liquid-fill-gauge';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,8 @@ import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
     MaterialModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxD3LiquidFillGaugeModule
   ],
   providers: [
     WeatherService

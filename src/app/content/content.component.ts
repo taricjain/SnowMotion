@@ -9,10 +9,10 @@ declare var $: any;
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.sass']
+  styleUrls: ['./content.component.sass'],
 })
 export class ContentComponent implements OnInit {
-  
+
   @Input()
   title: string;
 
@@ -32,7 +32,7 @@ export class ContentComponent implements OnInit {
     this.latitude = 39.8282;
     this.longitude = -98.5795;
     this.zoom = 4;
-    
+
     this.searchControl = new FormControl();
     this.setCurrentPosition();
 
@@ -44,12 +44,12 @@ export class ContentComponent implements OnInit {
         this.ngZone.run(() => {
           //get the place result
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-  
+
           //verify result
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
-          
+
           //set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
