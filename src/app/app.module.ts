@@ -37,7 +37,7 @@ import { DragScrollModule } from 'ngx-drag-scroll';
     FormsModule,
     ReactiveFormsModule,
     NgxD3LiquidFillGaugeModule,
-    NgxChartsModule
+    NgxChartsModule,
     DragScrollModule
   ],
   providers: [
