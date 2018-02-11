@@ -12,7 +12,7 @@ import { MaterialModule } from './material/material.module';
 import { WeatherService } from './weather.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxD3LiquidFillGaugeModule } from 'ngx-d3-liquid-fill-gauge';
 
 @NgModule({
@@ -33,7 +33,8 @@ import { NgxD3LiquidFillGaugeModule } from 'ngx-d3-liquid-fill-gauge';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxD3LiquidFillGaugeModule
+    NgxD3LiquidFillGaugeModule,
+    NgxChartsModule
   ],
   providers: [
     WeatherService

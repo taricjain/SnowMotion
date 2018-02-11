@@ -4,6 +4,7 @@ import { FormControl, FormsModule } from '@angular/forms';
 import { MapsAPILoader, AgmCoreModule, GoogleMapsAPIWrapper, InfoWindowManager, AgmInfoWindow } from '@agm/core';
 import {} from 'googlemaps';
 
+import { single, multi } from './data';
 declare var $: any;
 
 @Component({
@@ -25,7 +26,31 @@ export class ContentComponent implements OnInit {
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone ) {}
+  view: any[] = [700, 400];
+
+  // options
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+  showXAxisLabel = true;
+  xAxisLabel = 'Country';
+  showYAxisLabel = true;
+  yAxisLabel = 'Population';
+
+  colorScheme = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  };
+
+  // line, area
+  autoScale = true;
+
+  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone ) {
+    Object.assign(this, {single, multi})
+  }
+  onSelect(event) {
+    console.log(event);
+  }
 
   ngOnInit() {
     //default overlook on America
@@ -58,6 +83,7 @@ export class ContentComponent implements OnInit {
       });
     });
   }
+
   private setCurrentPosition() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) =>{

@@ -13,10 +13,17 @@
 </mat-card>
 
 <mat-card class="weather-display" id="weather-chart">
+    
     <app-ngx-d3-liquid-fill-gauge id="humid-gauge" [value]="37" [minValue]="0" [maxValue]="100" [circleThickness]="0.05" [circleFillGap]="0.05" [circleColor]="'#178BCA'" [waveHeight]="0.05" [waveCount]="4" [waveRiseTime]="1000" [waveAnimateTime]="18000" [waveRise]="true"
         [waveHeightScaling]="true" [waveAnimate]="true" [waveColor]="'#178BCA'" [waveOffset]="0" [textVertPosition]=".5" [textSize]="1" [valueCountUp]="true" [displayPercent]="true" [textColor]="'#045681'" [waveTextColor]="'#A4DBf8'">
     </app-ngx-d3-liquid-fill-gauge>
     <app-ngx-d3-liquid-fill-gauge id="precip-gauge" [value]="77" [minValue]="0" [maxValue]="100" [circleThickness]="0.05" [circleFillGap]="0.05" [circleColor]="'#178BCA'" [waveHeight]="0.05" [waveCount]="5" [waveRiseTime]="1000" [waveAnimateTime]="18000"
         [waveRise]="true" [waveHeightScaling]="true" [waveAnimate]="true" [waveColor]="'#178BCA'" [waveOffset]="0" [textVertPosition]=".5" [textSize]="1" [valueCountUp]="true" [displayPercent]="true" [textColor]="'#045681'" [waveTextColor]="'#A4DBf8'">
     </app-ngx-d3-liquid-fill-gauge>
+    <ngx-charts-pie-grid
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="single"
+    (select)="onSelect($event)">
+  </ngx-charts-pie-grid>
 </mat-card>
