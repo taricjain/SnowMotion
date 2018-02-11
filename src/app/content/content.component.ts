@@ -24,6 +24,8 @@ export class ContentComponent implements OnInit {
 
   public searchControl: FormControl;
 
+  private hasCurrentPlace: boolean = false;
+
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
@@ -83,13 +85,7 @@ export class ContentComponent implements OnInit {
           this.longitude = place.geometry.location.lng();
           this.zoom = 12;
 
-          // Building coordinate
-          var selectedCoordinates: Coordinate = { latitude: this.latitude, longitude: this.longitude};
-          // Send request to weather api
-          this.weatherService.getDataWithCoordinates(selectedCoordinates, (error, response) => {
-              this.updateViewWithWeatherData(place, response);
-          });
-
+          this.updateViewWithWeatherData(place);
         });
       });
     });
@@ -105,9 +101,22 @@ export class ContentComponent implements OnInit {
     }
   }
 
-  updateViewWithWeatherData(place: google.maps.places.PlaceResult, weatherData: any) {
-    this.weatherData = weatherData as WeatherData;
+  updateViewWithWeatherData(place: google.maps.places.PlaceResult) {
+    this.hasCurrentPlace = true;
     this.currentPlace = place;
-    console.log(this.weatherData);
   }
+  public smoothness() {
+    $('.smoothScroll').click(function() {
+      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 800);
+          return false;
+        }
+      }
+    });
+  } 
 }

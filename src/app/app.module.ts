@@ -14,13 +14,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxD3LiquidFillGaugeModule } from 'ngx-d3-liquid-fill-gauge';
+import { WeatherComponent } from './weather/weather.component';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ContentComponent
+    ContentComponent,
+    WeatherComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -35,6 +38,7 @@ import { NgxD3LiquidFillGaugeModule } from 'ngx-d3-liquid-fill-gauge';
     ReactiveFormsModule,
     NgxD3LiquidFillGaugeModule,
     NgxChartsModule
+    DragScrollModule
   ],
   providers: [
     WeatherService

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from '../material/material.module';
+import { FormControl } from '@angular/forms';
 
 declare var $: any;
 @Component({

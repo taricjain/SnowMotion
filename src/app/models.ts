@@ -16,12 +16,14 @@ export interface WeatherData {
     longitude: number;
     time: number;
     currentSummary: string;
-    temprature: number;
+    temperature: number;
     humidity: number;
     pressure: number;
     uvIndex: number;
     visibility: number;
     minuteData: MinuteData;
+    hourData: HourData;
+    icon: string;
 }
 
 export interface MinuteData {
@@ -29,8 +31,14 @@ export interface MinuteData {
     minutelyData: Array<MinutelyData>;
 }
 
-interface MinutelyData {
+export interface MinutelyData {
     time: number;
     precipIntensity: number;
     precipProbability: number;
+    precipType: string;
+}
+
+export interface HourData {
+    summary: string;
+    data: Array<WeatherData>;
 }
