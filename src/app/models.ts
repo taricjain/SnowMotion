@@ -57,6 +57,6 @@ export class TimeMachine {
     }
 
     static getYearAgo(numYearsAgo: number = 1) : number{
-        return Math.round((Date.now()/1000) - this.ONE_YEAR) * numYearsAgo;
+        return Math.round((Date.now())/1000 - this.ONE_YEAR * numYearsAgo);
     }
 }
