@@ -17,11 +17,12 @@
             <mat-grid-tile *ngFor="let hourData of weatherData.hourData.data">
               <mat-card class="carousel-card">
                 <img mat-card-avatar src="../assets/images/{{ hourData.icon }}.png" width="32" height="32" />
-                <mat-card-title style="padding-top:0.5em;">{{ hourData.temperature }} &deg;F</mat-card-title>
+                <mat-card-title>{{ hourData.temperature }} &deg;F</mat-card-title>
                 <mat-card-subtitle>{{ hourData.time * 1000 | date:'EEEE h:mm a' }}</mat-card-subtitle>
                 <mat-card-content>
-                  <p>Humidity: {{ hourData.humidity * 100 }} %</p>
-                  <p>Visibility: {{ hourData.visibility }} mi</p>
+                  Humidity: {{ hourData.humidity * 100 }} %
+                  <br>Visibility: {{ hourData.visibility }} mi
+                  <br><br><br><button mat-raised-button id="dialog" (click)="openDialog(hourData.temperature, hourData.humidity)">Details</button>
                 </mat-card-content>
               </mat-card>
             </mat-grid-tile>
@@ -29,7 +30,7 @@
         </div>
       </mat-tab>
 
-      <!-- <mat-tab label="Minutely">
+      <mat-tab *ngIf="weatherData.minuteData !== undefined" label="Minutely">
         <p>Summary: {{ weatherData.minuteData.summary }}</p>
         <div dragScroll class="scroller">
           <mat-grid-list cols="5">
@@ -47,21 +48,30 @@
         </div>
       </mat-tab>
 
-      <mat-tab label="On This Day">
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Last Week
-              </mat-panel-title>
-              <mat-panel-description>
-                This day last week
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-            <p>This is the primary content of the panel.</p>
-          </mat-expansion-panel>
-      </mat-tab> -->
-
-
+      <mat-tab label="On this day">
+        <mat-expansion-panel [expanded]="false" *ngFor="let hData of historicData">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ hData.time * 1000 | date:'MMM d, y' }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            <mat-card class="history-card">
+              <img mat-card-avatar src="../assets/images/{{ hData.icon }}.png" width="40" height="40" />              
+              <mat-card-title>
+                {{ hData.temperature }} &deg;F
+              </mat-card-title>
+              <mat-card-content>
+                <p>Summary: {{ hData.currentSummary }}</p>
+                <p>
+                  Humidity: {{ hData.humidity * 100}}% <br />
+                  Visibility: {{ hData.visibility }} mi
+                </p>
+              </mat-card-content>
+            </mat-card>
+          </mat-panel-description>
+        </mat-expansion-panel>
+      </mat-tab>
   </mat-tab-group>
-  
+
 </mat-card>

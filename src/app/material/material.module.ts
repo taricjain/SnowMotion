@@ -2,7 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { MatCardModule, MatButtonModule, MatToolbarModule, MatIconModule, MatInputModule, MatFormFieldModule, MatTabsModule, MatGridListModule, MatExpansionModule } from '@angular/material';
+import { 
+  MatCardModule, 
+  MatButtonModule, 
+  MatToolbarModule, 
+  MatIconModule, 
+  MatInputModule, 
+  MatFormFieldModule, 
+  MatTabsModule, 
+  MatGridListModule, 
+  MatExpansionModule, 
+  MatDialogModule } from '@angular/material';
+import { DetailsComponent } from '../details/details.component';
 
 @NgModule({
   imports: [
@@ -15,9 +26,21 @@ import { MatCardModule, MatButtonModule, MatToolbarModule, MatIconModule, MatInp
     MatFormFieldModule,
     MatTabsModule,
     MatGridListModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule,
   ],
-  exports: [MatCardModule, MatButtonModule, MatToolbarModule, MatIconModule, MatInputModule, MatFormFieldModule, MatTabsModule, MatGridListModule, MatExpansionModule],
+  exports: [
+    MatCardModule, 
+    MatButtonModule, 
+    MatToolbarModule, 
+    MatIconModule, 
+    MatInputModule, 
+    MatFormFieldModule, 
+    MatTabsModule, 
+    MatGridListModule, 
+    MatExpansionModule, 
+    MatDialogModule],
+    entryComponents: [DetailsComponent],
   declarations: []
 })
 export class MaterialModule { }

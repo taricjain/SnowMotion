@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef, NgZone } from '@angula
 import { WeatherData, Coordinate } from '../models';
 import { WeatherService } from '../weather.service';
 import { FormControl, FormsModule } from '@angular/forms';
-import { MapsAPILoader, AgmCoreModule, GoogleMapsAPIWrapper, InfoWindowManager, AgmInfoWindow } from '@agm/core';
+import { MapsAPILoader, AgmCoreModule } from '@agm/core';
 import {} from 'googlemaps';
 
 declare var $: any;
@@ -10,34 +10,35 @@ declare var $: any;
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.sass']
+  styleUrls: ['./content.component.sass'],
 })
 export class ContentComponent implements OnInit {
-  
+
   @Input()
   title: string;
 
   public latitude: number;
   public longitude: number;
   public zoom: number;
-
   public searchControl: FormControl;
+  public hasCurrentPlace: boolean = false;
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
-  public currentPlace: google.maps.places.PlaceResult;
-  private hasCurrentPlace: boolean = false;
-
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, 
-  private weatherService: WeatherService) {}
+  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private weatherService: WeatherService) {}
+  onSelect(event) {
+    console.log(event);
+  }
+  private weatherData: WeatherData;
+  private currentPlace: google.maps.places.PlaceResult;
 
   ngOnInit() {
     //default overlook on America
     this.latitude = 39.8282;
     this.longitude = -98.5795;
     this.zoom = 4;
-    
+
     this.searchControl = new FormControl();
     this.setCurrentPosition();
 
@@ -54,7 +55,7 @@ export class ContentComponent implements OnInit {
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
-          
+
           //set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
@@ -65,6 +66,7 @@ export class ContentComponent implements OnInit {
       });
     });
   }
+
   private setCurrentPosition() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) =>{
